@@ -314,7 +314,6 @@ const PageFlipper = React.forwardRef<PageFlipperInstance, IPageFlipperProps>(
     };
 
     const onLayout = (e: LayoutChangeEvent) => {
-      console.log('[ e.nativeEvent] ', e.nativeEvent);
       setLayout({
         height: e.nativeEvent.layout.height,
         width: e.nativeEvent.layout.width,
@@ -462,7 +461,6 @@ const PageFlipper = React.forwardRef<PageFlipperInstance, IPageFlipperProps>(
     };
 
     const ContentWrapper = renderContainer ? renderContainer : Wrapper;
-
     return (
       <View style={styles.container} onLayout={onLayout}>
         <View
@@ -527,7 +525,7 @@ const PageFlipper = React.forwardRef<PageFlipperInstance, IPageFlipperProps>(
                     ref={portraitBookPage}
                   />
                 </View>
-                {next && (
+                {!!next && (
                   <View
                     style={{
                       ...StyleSheet.absoluteFillObject,
@@ -535,7 +533,7 @@ const PageFlipper = React.forwardRef<PageFlipperInstance, IPageFlipperProps>(
                       overflow: 'hidden',
                     }}
                   >
-                    {renderPage && (
+                    {!!renderPage && (
                       <View style={getPageStyle(true, false)}>
                         {renderPage(next.right)}
                       </View>
