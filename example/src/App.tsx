@@ -5,9 +5,9 @@ import PageFlipper from 'react-native-flipper-cli';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 export default function App() {
-  const renderItem = (data) => (
-    <View style={{ height: '100%', width: '100%', backgroundColor: 'red' }}>
-      <Image source={{ uri: data }} style={{ height: '100%', width: '100%' }} />
+  const renderItem = (data: string) => (
+    <View style={styles.image}>
+      <Image source={{ uri: data }} style={styles.image} />
       <Text>DANGAERAASFSFSFSDFSDFSDF {data}</Text>
     </View>
   );
@@ -45,5 +45,9 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     marginVertical: 20,
+  },
+  image: {
+    height: '100%',
+    width: '100%',
   },
 });
